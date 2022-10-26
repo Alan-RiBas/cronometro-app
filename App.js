@@ -4,22 +4,16 @@ import { Image, Text, View, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 
 export default class App extends Component{
-  constructor(props){
-    super(props)
-    this.state = {
-      number: 0,
-      botao: 'Começar',
-      ultimo: null,
-    }
-    this.controle = null;
-    this.startTimer = this.startTimer.bind(this);
-    this.cleanUpTimer = this.cleanUpTimer.bind(this);
+
+  state = {
+    number: 0,
+    botao: 'Começar',
+    ultimo: null,
   }
- 
+  controle = null;
 
-
-  
-  startTimer(){
+  startTimer = ()=>{
+   
     if(this.controle != null){
       clearInterval(this.controle);
       this.controle = null;
@@ -29,12 +23,11 @@ export default class App extends Component{
       this.controle = setInterval(()=>{
         this.setState( {number: this.state.number + 0.1} )
       },100);
-
       this.setState({botao: 'Parar'});
     }
   }
 
-  cleanUpTimer(){
+  cleanUpTimer = () => {
     if(this.controle != null){
       clearInterval(this.controle);
       this.controle = null;
@@ -46,6 +39,7 @@ export default class App extends Component{
 
   render(){
     return(
+
       <View style={styles.container}>
         <View style={styles.container}>
           <View style={styles.content}>
