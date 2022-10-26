@@ -6,7 +6,7 @@ import { styles } from './styles';
 export default class App extends Component{
 
   state = {
-    number: 0,
+    tempo: 0,
     botao: 'Começar',
     ultimo: null,
   }
@@ -21,7 +21,7 @@ export default class App extends Component{
       this.setState({botao: 'Retomar'});
     }else{
       this.controle = setInterval(()=>{
-        this.setState( {number: this.state.number + 0.1} )
+        this.setState( {tempo: this.state.tempo + 0.1} )
       },100);
       this.setState({botao: 'Parar'});
     }
@@ -32,7 +32,7 @@ export default class App extends Component{
       clearInterval(this.controle);
       this.controle = null;
     }
-    this.setState({ultimo: this.state.number, number: 0, botao: 'Retomar'});
+    this.setState({ultimo: this.state.tempo, tempo: 0, botao: 'Retomar'});
   }
 
 
@@ -47,7 +47,7 @@ export default class App extends Component{
                 source={require('./src/img/cronometro.png')}
                 style={styles.cronometro}
               />
-              <Text style={styles.numero}>{this.state.number.toFixed(1)}</Text>
+              <Text style={styles.numero}>{this.state.tempo.toFixed(1)}</Text>
           </View>
 
             
