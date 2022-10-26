@@ -12,8 +12,11 @@ export default class App extends Component{
   }
   controle = null;
 
+  componentDidUpdate(){
+
+  }
+
   startTimer = ()=>{
-   
     if(this.controle != null){
       clearInterval(this.controle);
       this.controle = null;
@@ -32,14 +35,12 @@ export default class App extends Component{
       clearInterval(this.controle);
       this.controle = null;
     }
-    this.setState({ultimo: this.state.tempo, tempo: 0, botao: 'Retomar'});
+    
+    this.setState({ultimo: this.state.tempo, tempo: 0, botao: 'Começar'});
   }
-
-
 
   render(){
     return(
-
       <View style={styles.container}>
         <View style={styles.container}>
           <View style={styles.content}>
